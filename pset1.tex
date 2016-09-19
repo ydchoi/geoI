@@ -140,14 +140,15 @@ for $(x,y) \in S^1$ such that $y \neq 1$, and
 \eQe
 for $(x,y) \in S^1$ such that $y = 1$. Now, in chosen coordinates
 \eQb
-\pi_{1,1}(p) = p
-\pi_{2,1}(p) = \dfrac{1}{p}
-\pi_{1,2}(p) = \dfrac{1}{p}
-\pi_{2,2}(p) = p.
+\pi_{1,1}(p) = p \\
+\pi_{2,1}(p) = \dfrac{1}{p} \\
+\pi_{1,2}(p) = \dfrac{1}{p} \\
+\pi_{2,2}(p) = p \\.
 \eQe
+(This result is well-known; we show a more detailed computation in part c.)
 Hence, all coordinate expressions are smooth, so $\pi$ is smooth. $\pi$
 is one-to-one and in local charts the inverses are smooth as well. Hence,
-we see that $\pi$ is a diffeomorphism. 
+we see that $\pi$ is a diffeomorphism. \hfill $\qed$ 
 
 \bigskip
 
@@ -208,7 +209,31 @@ as required. \hfill $\qed$
 \end{figure}
 \end{question}
 \begin{solution} \hfill \\
-This statement corresponds to 
+Without loss of generality, we assume smooth structure on $M$ and prove that a smooth
+map with the desired property exists.
+One should remark that this version of smooth urysohn's lemma is easier to prove than
+the version on the normal space that is merely continuous, 
+as we have more structure from the smooth manifold assumption. It is sufficient to
+prove that for any open set $O$ there exists a smooth $f:M \to [0,\infty)$ such that
+$f^{-1}(0) = (M\setminus O)$. First suppose that $O$ is a product of open intervals
+in some $\mathbb{R}^n$. Then, there exists a bump function, positive on $O$ and
+vanishes on the complement. Now, for $O$ open in $\mathbb{R}^n$, write it
+as a union of open cubes such that for any point in $O$, there is
+finitely many open cubes that cover it. Sum of the bump functions from the previous
+result gives the desired construction. Now, consider an open set that has 
+a chart defined on it. Then, by pull-back and using the previous result, we obtain
+the desired function. Again, for the general open set, use the locally finite 
+cover of charts and sum then constructed functions. 
+
+\bigskip
+
+Now let $C_1, C_2$ be closed subsets of $M$ such that $C_1 \cap C_2 = \empty$.
+Choose $f_1$ and $f_2$ smooth functions on $M$ such that $f_1^{-1}(0) = C_1$
+and $f_2^{-1}(0) = C_2$. Set 
+\eQb
+f &=& \dfrac{f_1}{f_1 + f_2}.
+\eQe  
+It follows that $f$ is the desired function. \hfill $\qed$ 
 \end{solution}
 
 \end{document}
