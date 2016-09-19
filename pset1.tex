@@ -43,7 +43,7 @@
 \usepackage{verbatimbox}
 \usepackage{listings}
 \usepackage{mathrsfs}
-\title{ProbLimI: \\
+\title{DiffGeoI: \\
 Problem Set I}
 
 
@@ -74,8 +74,7 @@ New York University\\
 \maketitle
 
 \begin{abstract}
-This work contains solutions to the exercises of the problem set I. The
-chosen problems are 1,2, and 4.
+This work contains solutions to the exercises of the problem set I.
 \end{abstract}
 
 \bigskip
@@ -88,6 +87,21 @@ chosen problems are 1,2, and 4.
 \end{figure}
 \end{question}
 \begin{solution} \hfill \\
+For any topological space, path-connected implies connected. We prove the converse.
+Suppose $X$ is connected. Let $x \in X$, and set
+\eQb
+U &=& \{ y \in X \>|\> \text{ there is a path bewteen}\> x \>\text{and}\> y\}.
+\eQe
+Observe that $x \in U$ so $U$ is non-empty. Now, as $X$ is connected,
+if $U$ and $U^c$ are both open, then $U^c$ is empty, and $U = X$, so
+$X$ is path-connected. We show that $U$ is open. Let $y \in U$. Then,
+there exists an open nbd of $y$, $O$, such that $O$ is homeomorphic to 
+an open ball in $R^n$(this is equivalent to the locally euclidean
+condition of topological manifold). Since
+path-connectedness is preserved through homeomorphism, we conclude that $O$
+is path connected and $O \subset U$. Therefore, $U$ is open and similarly
+$U^c$ is open, and we are done. \hfill $\qed$ 
+
 \end{solution}
 
 \newpage
@@ -100,6 +114,88 @@ chosen problems are 1,2, and 4.
 \end{figure}
 \end{question}
 \begin{solution} \hfill \\
+\textbf{(a)} Let $1 \leq i < j \leq n$. By symmetry, it suffices to show that
+\eQb
+\phi_j \circ \phi_i^{-1} : \phi_i(U_i \cap U_j) \to \phi_{j}(U_i \cap U_j) 
+\eQe
+is smooth. For any $a = (\dfrac{x_1}{x_i},...,\dfrac{x_{i+1}}{x_i},...,
+\dfrac{x_{n+1}}{x_i}) \in \phi_i(U_i \cap U_j)$ with $x_i , x_j \neq 0$, 
+\eQb
+a \mapsto_{\phi_i^{-1}} [x_1,...,x_{n+1}] \mapsto_{\phi_j} (\dfrac{x_1}{
+x_j},...,\dfrac{x_{j-1}}{x_j},\dfrac{x_{j+1}}{x_j},...,\dfrac{x_{n+1}}{x_i}).
+\eQe
+Since each coordinate map is smooth, we see that the transition map is smooth
+and since the indices were arbitrary, the atlas is smooth. \hfill $\qed$
+
+\bigskip
+
+\textbf{(b)} Here, we choose to work with the stereographic projection chart on
+$S^1$. Consider the map $\pi:S^1 \to \mathbb{R}P1$ defined by
+\eQb
+(x,y) &\mapsto& [1-y:x]
+\eQe
+for $(x,y) \in S^1$ such that $y \neq 1$, and
+\eQb
+(x,y) &\mapsto& [0:1]
+\eQe
+for $(x,y) \in S^1$ such that $y = 1$. Now, in chosen coordinates
+\eQb
+\pi_{1,1}(p) = p
+\pi_{2,1}(p) = \dfrac{1}{p}
+\pi_{1,2}(p) = \dfrac{1}{p}
+\pi_{2,2}(p) = p.
+\eQe
+Hence, all coordinate expressions are smooth, so $\pi$ is smooth. $\pi$
+is one-to-one and in local charts the inverses are smooth as well. Hence,
+we see that $\pi$ is a diffeomorphism. 
+
+\bigskip
+
+\textbf{(c)} 
+We choose the smooth structure of $S^2$ to be the one
+that contains the projection charts.
+Let $p = (x^*,y^*,z^*) \in S^2$ and assume without loss of generality that
+$z^* > 0$. Choose a chart $(U_z^+, \psi_z)$ of $p$ where 
+\eQb
+U_{z^+} &=& \{ p = (x,y,z) \in S^2 \> :\> z > 0 \} 
+\eQe 
+with $\psi_z: U_{z^+} \to \mathbb{R}^2$ defined by
+\eQb
+p = (x,y,z) \in U_{z^+} \mapsto (x,y). 
+\eQe
+Now, observe that with $z^* > 0$, $\pi(z^*) \in U_3$, so we can choose 
+$(U_3,\phi_3)$
+for a chart at $\pi(z^*)$. We now claim that
+\eQb
+\phi_3 \circ  \pi \circ \psi_z^{-1}:\psi_z(U_z^+) \to U_3 
+\eQe
+is smooth at $\psi(p)$. For each $(x,y) \in \psi(U_z^{+})$, we have
+\eQb
+(x,y) &\mapsto_{\psi_{z}^{-1}}& (x,y,(1-x^2-y^2)^{\frac{1}{2}})
+\mapsto_{\pi} [x,y,(1-x^2-y^2)^{\frac{1}{2}}] \\
+&\mapsto_{\phi_3}& 
+(\dfrac{x}{(1-x^2-y^2)^{\frac{1}{2}}},\dfrac{y}{(1-x^2-y^2)^{\frac{1}{2}}}) 
+\eQe
+which simplifies to
+\eQb
+(x,y) \mapsto_{\phi_3 \circ \pi \circ \psi_{z}^{-1}} (\dfrac{x}{(1-x^2-y^2)^{
+\frac{1}{2}}},
+\dfrac{y}{(1-x^2-y^2)^{\frac{1}{2}}}).
+\eQe
+Therefore, we see that each component is smooth, and $\phi^3 \circ \pi 
+\circ \psi_{z}^{-1}$ is smooth, so $\pi$ is smooth.
+
+\bigskip
+ 
+Now, it is easy to see that $\pi$ in fact gives the diffeomorphism as claimed.
+By symmetry, on any chart, $\pi$ is a bijection from $U$ to $\pi(U)$, as we have 
+eliminated the $2-1$ mapping by only considering positive or negative parts
+in all dimensions. It is also true that $\pi(U)$ is open. Restricted
+to $\pi(U)$ by the same computation as above, $\pi^{-1}$ is smooth, so we see
+that $\pi$ is a local diffeomorphism. Formally, fix $p \in S^2$. Choose a chart
+that contains $p$, $U$, then, $\pi$ restircted to $U$ gives a diffeomorphism
+as required. \hfill $\qed$ 
+
 \end{solution}
 
 \newpage
@@ -112,6 +208,7 @@ chosen problems are 1,2, and 4.
 \end{figure}
 \end{question}
 \begin{solution} \hfill \\
+This statement corresponds to 
 \end{solution}
 
 \end{document}
