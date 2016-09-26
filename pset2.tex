@@ -180,56 +180,55 @@ with boundaries is not a manifold with boundary. \hfill $\qed$
 \begin{solution} \hfill \\
  \textbf{(a)} Let $p = (x_1^*,...,x_{n+1}^*,y_1^*,...,y_{n+1}^*) 
 \in S^n \times S^n$.
-Without loss of generality, suppose that $p \in U_N \times U_N$. Then, we have
-the associated projection being $\phi = \psi_N \times \psi_N$, and choose 
-$\mathbb{R},id)$ chart for $f(p)$. We aim to show that
+Without loss of generality, suppose that $p \in U_N \times U_S$. Then, we have
+the associated projection being $\phi = \psi_N \times \psi_S$, and choose 
+$(\mathbb{R},id)$ chart for $f(p)$. We aim to show that
 \eQb
 id \circ f \circ \phi^{-1} = f \circ \phi^{-1}
 \eQe 
-is smooth. For any $q = (x_1,...,x_{n+1},y_1,...y_{n+1}) \in U_N \times U_N$,
+is smooth. For any $q = (x_1,...,x_{n},y_1,...y_{n}) \in \phi^{-1}(U_N \times U_S)$,
 \eQb
-\phi(q) &\mapsto
+q &\mapsto_\phi^{-1}& (\dfrac{S^2-1}{S^2+1},\dfrac{2x_1}{S^2+1},...,\dfrac{2x_n}{S^2+1},
+\dfrac{S^2-1}{S^2+1},\dfrac{P^2-1}{P^2+1},\dfrac{2y_1}{P^2+1},...,
+\dfrac{2y_n}{P^2+1}) \\
+&\mapsto_{f}& \dfrac{(S^2-1)(P^2-1)}{(S^2+1)(P^2+1)} + \sum_{j=1}^{n}
+\dfrac{4x_j y_j}{(S^2+1)(P^2+1)}, \\
 \eQe
- 
-
-\textbf{(a)} Let $p = (x_1^*,...,x_n^*,y_1^*,...,y_n^*) \in S^n \times S^n$. 
-Without loss of 
-generality, suppose that $x_n^*, y_n^* > 0$. 
-Choose ${U_{n}}^{+} \times {U_n}^{+}$ with
-the associated projection map, $\phi$ 
-as the chart for $p$ and choose $(\mathbb{R},id)$. We aim to show that 
-$id \circ f \circ \phi^{-1} = f \circ \phi^{-1}$ is smooth. For any $q
-= (x_1,...,x_{n},y_1,...,y_n) \in U_{n}^{+}
-\times {U_n}^{+}$, 
-\eQb
-(\phi(q)) \mapsto 
-(x_1,...,(1-\sum_{i =1}^{n-1} {x_i}^2)^{\frac{1}{2}}),y_1,...,(1-\sum_{i=1}^{n-1}
-{y_i}^2)^{\frac{1}{2}}) \mapsto  \sum_{i=1}^{n-1} x_i y_i + \\ 
-(1-\sum_{i=1}^{n-1} {x_i}^2)^{\frac{1}{2}})
-(1-\sum_{i=1}^{n-1} {y_i}^2)^{\frac{1}{2}}),
-\eQe 
-which shows that $f \circ \phi^{-1}$ is smooth, because the domain of the map is
-$B_{n}\times B_{n}$, where $B_n$ denotes the $n$ dimensional unit ball, lying
-on the $x_1-...-x_n$ plane. 
-
-\smallskip
- 
-Now, taking the differential of $f$ gives
+where $S^2 = \sum_{j=1}^{n} x_j^{2}$ and $P^2 = \sum_{j=1}^{n} y_n^{2}$. This
+shows that the map is well-defined rational function, so it is smooth. 
+By definition, submersion points are points where the differential at the point
+is surjective. These can be seen to be points with $S^2 \neq 1$
+and $P^2 \neq 1$, which can be written as $(S_{n-1}
+ \times S_n) \cap (S_{n} \times S_{n-1}) = S_{n-1} \times S_{n-1}$.
 
 \bigskip
+
 \textbf{(b)} Let $p \in M$, and suppose without loss of generality, $p \in
 U_N \times U_S$ (up to re-ordering). Then, it suffices to show that
 \eQb
-\psi_N \times \psi_S((U_N \times U_S) \cap M) &=& \psi_N \times \psi_S
-(M \setminus
-((p_N \times S_{n-1}  \cup S_{n-1} \times p_S)),  
+\psi_N \times \psi_S((U_N \times U_S) \cap M) &=& 
+\psi_N \times \psi_S
+(M \setminus ((p_S \times S_{n-1})  \cup (S_{n-1} \times p_N)) \\
+&=& 
+\psi_N \times \psi_S
+(M)  \setminus
+\psi_N \times \psi_S(p_S \times S_{n-1}  \cup S_{n-1} \times p_N) \\
 \eQe
 where $p_N$ and $p_S$ denote north and south poles,
 is a submanifold of
 $\psi_N \times \psi_S(U_N \times U_S) = (\mathbb{R}^n \setminus \{0\}) \times
-(\mathbb{R}^n \setminus \{0\})$. From $(a)$, it should follow that
-$f$ provides the necessary submersion.
- 
+(\mathbb{R}^n \setminus \{0\})$. This follows, because 
+\eQb
+(p_S \times S_{n-1}) \cup (S_{n-1} \times p_N) 
+\subset S_{n-1} \times S_{n-1}
+\eQe
+and from $(a)$, 
+we see that $f$ provides the submersion on the manifold, which shows
+the submanifold relation. 
+
+\bigskip
+
+\textbf{(c)} This can be shown through an analogous argument in $(a)$ and $(b)$.
 
 \bigskip
 
